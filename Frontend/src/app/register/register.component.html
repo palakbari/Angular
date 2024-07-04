@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Enter your name:</td>
+            <td><input type="text" name="name" id="name" [(ngModel)]="name"/></td>
+        </tr>
+
+        <tr>
+            <td>Enter your mobile number:</td>
+            <td><input type="text" name="mobile" id="mobile" [(ngModel)]="mobile" /></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="Submit" (click)="onSubmit()"/></td>
+        </tr>
+
+    </table>
+    <table>
+        <thead>
+            <th>
+                Name
+            </th>
+            <th>
+                Mobile Number
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of Employees">
+                <td>{{emp.name}}</td>
+                <td>{{emp.mobile_number}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+

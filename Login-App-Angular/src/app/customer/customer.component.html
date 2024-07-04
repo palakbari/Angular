@@ -1,0 +1,77 @@
+<nav>
+    <br>
+    <h5 style="text-align: center;">
+        Welcome Admin {{loginUserFirstName}}
+    </h5>
+    <a class="navbar-brand mb-0 h1 underline" (click)="logout()" >
+        <button type="button">Logout</button>
+    </a>
+</nav>
+<form [formGroup]= "customerObj.formCustomerGroup">
+    <table>
+        <tr>
+            <th>Customer Id:</th>
+            <td>
+                <input type="text" [(ngModel)]="customerObj.id" formControlName="CustomeridControl" />
+                <span style="color: red;" *ngIf="customerObj.formCustomerGroup.controls['CustomerIdControl'].dirty" [hidden]="!(hasError('required','CustomerIdControl'))">Customer Id is Required</span>
+                <span style="color: red;" *ngIf="customerObj.formCustomerGroup.controls['CustomerIdControl'].dirty" [hidden]="!(hasError('pattern','CustomerIdControl'))">Customer ID is Not in format</span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Customer Name:</th>
+            <td>
+                <input type="text" [(ngModel)]="customerObj.CName" formControlName="CustomerNameControl" />
+                <span style="color: red;" *ngIf="customerObj.formCustomerGroup.controls['CustomerNameControl'].dirty" [hidden]="!(hasError('required','CustomerNameControl'))">Customer Name Required</span>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Customer Email:</th>
+            <td>
+                <input type="email" [(ngModel)]="customerObj.Email" formControlName="CustomerEmailControl" />
+                <span style="color: red;" *ngIf="customerObj.formCustomerGroup.controls['CustomerEmailControl'].dirty" [hidden]="!(hasError('required','CustomerEmailControl'))">Customer Email Required</span>
+                <span style="color: red;" *ngIf="customerObj.formCustomerGroup.controls['CustomerEmailControl'].dirty" [hidden]="!(hasError('pattern','CustomerEmailControl'))">Customer Email is Not in format</span>
+            </td>
+        </tr>
+        <tr>
+            <th>Customer Amount:</th>
+            <td>
+                <input type="text" [(ngModel)]="customerObj.Amount" [ngModelOptions]="{standalone:true}"/>
+            </td>
+        </tr>
+    </table>
+
+    <div style="text-align: left;">
+        <input type="button" value="Clear" (click)="clear()"/>
+        <input type="button" value="Add" (click)="add()" [disabled]="!(customerObj.formCustomerGroup.valid)"/>
+        <input type="button" value="Update" (click)="update()"/>
+        <input type="button" value="Delete" (click)="delete()"/>
+        <br>
+        <input type="button" value="Add to JSON" (click)="postToServer()" [disabled] = "!(customerObj.formCustomerGroup.valid)"/> 
+        <input type="button" value="Delete From JSON" (click)="deleteFromServer()"/>
+        <input type="button" value="Update From JSON" (click)="updateFromServer()"/>
+    </div>
+
+    <table class="table table-bordered border-primary table-hover" style="width : 50pc;">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Amount</td>
+                <td>Select</td>
+            </tr>
+        </thead>
+            <tbody>
+                <tr *ngFor="let item of customers">
+                    <td>{{item.id}}</td>
+                    <td>{{item.CName}}</td>
+                    <td>{{item.Email}}</td>
+                    <td>{{item.Amount}}</td>
+                    <td><input type="button" value="select" (click)="select(item)"/></td>
+                </tr>
+            </tbody>
+    </table>
+</form>
+

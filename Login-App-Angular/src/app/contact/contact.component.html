@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <th>First Name:</th>
+                <td>
+                    <input type="text" id="firstname" name="firstname" required minlength="3" [(ngModel)]="contact.FirstName" #firstname="ngModel" />
+                    <span *ngIf="!firstname?.valid && (firstname?.dirty || firstname?.touched)" class="text-danger">
+                        <span *ngIf = "firstname.errors.required">
+                            First Name is Required
+                        </span>
+                        <span *ngIf = "firstname.errors.minlength">
+                            First Name Minimum Length is {{firstname.errors.minlength?.requiredLength}}
+                        </span>
+                    </span>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Last Name:</th>
+                <td>
+                    <input type="text" id="lastname" name="lastname" required maxlength="15" pattern="^[a-zA-Z]+$" [(ngModel)]="contact.LastName" #lastname="ngModel" />
+                    <span *ngIf="!lastname?.valid && (lastname?.dirty || lastname?.touched)" class="text-danger">
+                        <span *ngIf = "lastname.errors.required">
+                            Last Name is Required
+                        </span>
+                        <span *ngIf = "lastname.errors.maxlength">
+                            Last Name Maximum Length is {{lastname.errors.maxlength?.requiredLength}}
+                        </span>
+                        <span *ngIf = "lastname.errors.pattern">
+                            Last Name Not in Format
+                        </span>
+                    </span>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Email:</th>
+                <td>
+                    <input type="email" id="email" name="email" required email [(ngModel)]="contact.Email" #email="ngModel" />
+                    <span *ngIf="!email?.valid && (email?.dirty || email.touched)" class="text-danger">
+                        <span *ngIf = "email.errors.required">
+                            Email is Required
+                        </span>
+                        <span *ngIf = "email.errors.email">
+                            Email Invalid
+                        </span>
+                    </span>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Gender:</th>
+                <td>
+                    <input type="radio" id="gender" name="gerder" value="male" required [(ngModel)]="contact.Gender" #gender="ngModel" />Male
+                    <input type="radio" id="gender" name="gerder" value="female" required [(ngModel)]="contact.Gender" #gender="ngModel" />Female                
+                    <span *ngIf="!gender?.valid && (gender.dirty || gender.touched)" class="text-danger">
+                        <span *ngIf = "gender.errors.required">
+                            Gender is Required
+                        </span>
+                    </span>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Accept TOC:</th>
+                <td>
+                    <input type="checkbox" id="isToc" name="isToc" required [(ngModel)]="contact.isToc" #isToc="ngModel" />
+                    <span *ngIf="!isToc.valid && (isToc?.dirty || isToc.touched)" class="text-danger">
+                        <span *ngIf = "isToc.errors.required">
+                            Accept the TOC
+                        </span>
+                    </span>
+                </td>
+            </tr>
+
+            <tr>
+                <input type="button" value="Submit"  [disabled]="" />
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

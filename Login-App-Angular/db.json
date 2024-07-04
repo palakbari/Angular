@@ -1,0 +1,22 @@
+{
+  "customers": [
+    {
+      "id": "18",
+      "CName": "Mantr",
+      "Amount": "7000",
+      "Email": "mantr@gmail.com"
+    },
+    {
+      "id": "01",
+      "CName": "Palak",
+      "Amount": "10000",
+      "Email": "palakbari08@gmail.com"
+    },
+    {
+      "id": "02",
+      "CName": "Sahil",
+      "Amount": "12000",
+      "Email": "sahil@gmail.com"
+    }
+  ]
+}

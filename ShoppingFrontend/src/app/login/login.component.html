@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <table>
+        <tr>
+            <td>Enter Username:</td>
+            <td><input type="text" name="username" id="username" [(ngModel)]="username"/></td>
+        </tr>
+
+        <tr>
+            <td>Enter Password:</td>
+            <td><input type="password" name="password" id="password" [(ngModel)]="password"/></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="button-container">
+            <input type="button" value="Login" (click)="onLogin()"/></td>
+        </tr>
+    </table>
+</body>
+</html>
+<p>login works!</p>

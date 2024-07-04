@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping App</title>
+</head>
+<body>
+    <h2>Customer Detail List</h2>
+    <table>
+        <thead>
+            <th>Customer Id</th>
+            <th>Cutomer Name</th>
+            <th>Cutomer Balance</th>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let cust of Customers">
+                <td>{{cust.c_id}}</td>
+                <td>{{cust.c_name}}</td>
+                <td>{{cust.balance}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <h2>Insert New Customer Details</h2>
+    <table>
+        <tr>
+            <td>Enter Customer Id:</td>
+            <td><input type="text" name="c_id" id="c_id" [(ngModel)]="c_id"/></td>
+        </tr>
+
+        <tr>
+            <td>Enter Customer Name:</td>
+            <td><input type="text" name="c_name" id="c_name" [(ngModel)]="c_name" /></td>
+        </tr>
+
+        <tr>
+            <td>Enter Balance:</td>
+            <td><input type="text" name="balance" id="balance" [(ngModel)]="balance" /></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="button-container">
+            <input type="button" value="Submit" (click)="onSubmit()"/>
+            <input type="button" value="Back" (click)="onBack()"/></td>
+        </tr>
+    </table>
+</body>
+</html>
+

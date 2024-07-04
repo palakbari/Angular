@@ -1,0 +1,49 @@
+body {
+    font-family: 'Times New Roman', Times;
+    margin: 20px;
+}
+h2 {
+    color: #333;
+    margin: center;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background-color: #f4f4f4;
+}
+input[type="text"] {
+    width: calc(100% - 24px);
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="button"] {
+    background-color: lightseagreen;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+tr:hover {
+    background-color: #f1f1f1;
+}

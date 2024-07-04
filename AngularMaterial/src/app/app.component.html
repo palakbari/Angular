@@ -1,0 +1,20 @@
+  <!-- <h2 style="text-align: center;">
+    Angular Material Application
+  </h2>
+  <mat-slide-toggle>
+    Toggle Me!
+  </mat-slide-toggle> -->
+  <app-root></app-root>
+  {{title | uppercase | reversestring}}
+
+  <b>Date Format:</b>My Joining Date is {{printDate | date}}.<br/>
+  <b>Specific Date Format:</b>My Joining Date is {{printDate | date:"dd/mm/yyyy"}}.<br/>
+  <b>Full Date Format:</b>My Joining Date is {{printDate | date:"fullDate"}}.<br/>
+  <b>Short Date Format:</b>My Joining Date is {{printDate | date:"shortDate"}}.<br/>
+  <b>Medium Date Format:</b>My Joining Date is {{printDate | date:"mediumDate"}}.<br/>
+
+  Grade:{{10 | percent}}<br/>
+  decimal:{{2000.314 | number:'1.2-2'}}<br/>
+  currency:{{500 | currency | 'USD'}}<br/>
+  currency:{{500 | currency | 'EUR'}}<br/>
+  currency:{{500 | currency | 'INR'}}<br/> 

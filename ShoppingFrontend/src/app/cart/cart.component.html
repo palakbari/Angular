@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping App</title>
+</head>
+<body>
+    <h2>Cart</h2>
+    <div *ngIf="Products.length > 0; else noProducts">
+        <table border="1">
+          <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Cost</th>
+            <th>Product Quantity Available</th>
+            <th>Discount</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let product of Products">
+            <td>{{ product.pro_id }}</td>
+            <td>{{ product.pro_name }}</td>
+            <td>{{ product.pro_cost }}</td>
+            <td>{{ product.pro_quantity }}</td>
+            <td>{{ product.pro_discount }}</td>
+            <td>
+              <form (ngSubmit)="addToCart(product.pro_id, parseQuantity(quantity.value))">
+                <input type="number" name="quantity" value="0" min="0" max="{{ product.pro_quantity }}" style="width: 80px" #quantity />
+                <input type="hidden" name="pro_id" value="{{ product.pro_id }}" />
+                <button type="submit">Add to Cart</button>
+              </form>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <ng-template #noProducts>
+      <h4>No Products to Display</h4>
+    </ng-template>
+
+    <h2>Cart Items</h2>
+    <table border="1">
+      <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Product Cost</th>
+        <th>Quantity</th>
+        <th>Total Cost</th>
+        <th>Remove item</th>
+      </tr>
+      <tr class="cart-item" *ngFor="let item of Carts; let i = index">
+        <ng-container *ngIf="isValidCartItem(item)">
+          <td>{{ item.pro_id }}</td>
+          <td>{{ item.pro_name }}</td>
+          <td>{{ item.pro_cost }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.pro_cost * item.quantity }}</td>
+          <td><button (click)="removeFromCart(i)">Remove</button></td>
+        </ng-container>
+      </tr>
+    </table>
+
+
+      <div class="balance">Current Balance: {{ balance | currency:'INR':'symbol':'1.2-2' }}</div>
+      <button (click)="addBalance(amountToAdd)">Add Balance</button>
+      <input type="number" [(ngModel)]="amountToAdd" placeholder="Enter amount to add" />
+      <div class="payment-result">{{ paymentResult }}</div>
+    
+    <div *ngIf="Carts.length > 0; else emptyCart">
+      <div class="total">Total: {{ calculateTotal() | currency:'INR':'symbol':'1.2-2' }}</div>
+      <button (click)="payBill()">Pay Bill</button>
+      </div>
+    <ng-template #emptyCart>
+      <p>Your cart is empty.</p>
+    </ng-template>
+</body>
+</html>

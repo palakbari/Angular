@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form [formGroup] = "profileform">
+        <table>
+            <tr>
+                <th>First Name:</th>
+                <td><input formControlName="firstname" /></td>
+            </tr>
+
+            <tr>
+                <th>Last Name:</th>
+                <td><input formControlName="lastname" /></td>
+            </tr>
+
+            <tr>
+                <th>Age:</th>
+                <td><input formControlName="age" type="number" /></td>
+                <span *ngIf="profileform.get('age').errors?.negativeNumber" style="color: red;" >
+                    Age Invalid
+                </span>
+            </tr>
+
+            <tr>
+                <th>Room Access</th>
+                <td>
+                    <select formControlName="room">
+                        <option *ngFor="let room of rooms" [value]="room.value">
+                            {{room.text}}
+                        </option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><input type="button" value="Submit" [disabled]="!profileform.valid"/></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

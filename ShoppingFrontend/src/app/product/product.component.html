@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping App</title>
+</head>
+<body>
+    <h2>Product Detail List</h2>
+    <table>
+        <thead>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Cost</th>
+            <th>Product Quantity</th>
+            <th>Product Discount</th>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let pro of Products">
+                <td>{{pro.pro_id}}</td>
+                <td>{{pro.pro_name}}</td>
+                <td>{{pro.pro_cost}}</td>
+                <td>{{pro.pro_quantity}}</td>
+                <td>{{pro.pro_discount}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+    <h2>Insert New Product Details</h2>
+    <table>
+        <tr>
+            <td>Enter Product Id:</td>
+            <td><input type="text" name="pro_id" id="pro_id" [(ngModel)]="pro_id"/></td>
+        </tr>
+
+        <tr>
+            <td>Enter Product Name:</td>
+            <td><input type="text" name="pro_name" id="pro_name" [(ngModel)]="pro_name" /></td>
+        </tr>
+
+        <tr>
+            <td>Enter Product Cost:</td>
+            <td><input type="text" name="pro_cost" id="pro_cost" [(ngModel)]="pro_cost" /></td>
+        </tr>
+
+        <tr>
+            <td>Enter Product Quantity:</td>
+            <td><input type="text" name="pro_quantity" id="pro_quantity" [(ngModel)]="pro_quantity" /></td>
+        </tr>
+
+        <tr>
+            <td>Enter Product Discount:</td>
+            <td><input type="text" name="pro_discount" id="pro_discount" [(ngModel)]="pro_discount" /></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="button-container">
+            <input type="button" value="Submit" (click)="onSubmit()"/>
+            <input type="button" value="Back" (click)="onBack()"/></td>
+        </tr>
+    </table>
+</body>
+</html>
+

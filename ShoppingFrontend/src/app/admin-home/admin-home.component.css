@@ -1,0 +1,39 @@
+body {
+  font-family: 'Times New Roman', Times;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-home-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.image-container {
+  margin-bottom: 20px;
+}
+
+.shopping-image {
+  max-width: 80%;
+  height: 10%;
+  border-radius: 8px;
+}
+
+.button-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button-section input[type="button"] {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: lightseagreen;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-section input[type="button"]:hover {
+  background-color: #45a049;
+}

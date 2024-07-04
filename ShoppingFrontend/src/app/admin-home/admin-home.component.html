@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="admin-home-container">
+    <h5>Discover the Ultimate Shopping Experience</h5>
+      <div class="image-container">
+        <img src="assets/Shoppin.jpg" alt="Shoppin" class="shopping-image">
+      </div>
+        <p *ngIf="!showMore">{{ content.slice(0, 50) }}...</p>
+        <p *ngIf="showMore">{{ content }}</p>
+        <button (click)="toggleReadMore()">Read {{ showMore ? 'Less' : 'More' }}</button>
+    </div>
+    <div class="button-section">
+        <input type="button" value="Product" (click)="product()"/>
+        <input type="button" value="Customer" (click)="customer()"/>
+        <input type="button" value="Logout" (click)="onLogout()"/> 
+    </div> 
+</body>
+</html>
+
